@@ -27,8 +27,7 @@ symbol_phonetic = {
     '(': 'Open Parenthesis', ')': 'Close Parenthesis', '[': 'Open Bracket',
     ']': 'Close Bracket', '{': 'Open Brace', '}': 'Close Brace',
     '<': 'Less Than', '>': 'Greater Than', ':': 'Colon', ';': 'Semicolon',
-    '"': 'Double Quote', "'": 'Single Quote', '`': 'Backtick', '~': 'Tilde',
-    ' ': 'Space'
+    '"': 'Double Quote', "'": 'Single Quote', '`': 'Backtick', '~': 'Tilde'
 }
 
 # Color scheme
@@ -46,6 +45,8 @@ def convert_to_phonetic(*args):
     text = input_entry.get().upper()
     result = []
     for char in text:
+        if char == ' ':
+            continue  # Skip spaces
         if char.isalpha():
             result.append(nato_phonetic.get(char, char))
         elif char.isdigit():
